@@ -18,11 +18,8 @@ class Members(APIView):
 
 
 	def post(self, request, format=None):
-		print('this is body', request.body)
-		#payload = request.POST.dict()
-		#print('this is dict', payload)
+	
 		payload = json.loads(request.body.decode('utf-8'))
-		print('this is payload', payload)
 		try:
 			first_name = payload['first_name']
 			last_name = payload['last_name']
@@ -39,7 +36,7 @@ class Members(APIView):
 
 
 	def put(self, request, format=None):
-		payload = request.POST.dict()
+		payload = json.loads(request.body.decode('utf-8'))
 		try:
 			user_id = payload.get('id')
 			if user_id:
@@ -55,7 +52,7 @@ class Members(APIView):
 
 
 	def delete(self, request, format=None):
-		payload = request.POST.dict()
+		payload = json.loads(request.body.decode('utf-8'))
 		try:
 			user_id = payload.get('id')
 			if user_id:

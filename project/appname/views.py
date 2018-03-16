@@ -18,7 +18,11 @@ class Members(APIView):
 
 
 	def post(self, request, format=None):
-		payload = request.POST.dict()
+		print('this is body', request.body)
+		#payload = request.POST.dict()
+		#print('this is dict', payload)
+		payload = json.loads(request.body.decode('utf-8'))
+		print('this is payload', payload)
 		try:
 			first_name = payload['first_name']
 			last_name = payload['last_name']
@@ -30,6 +34,7 @@ class Members(APIView):
 			serializer = MemberSerializer(createMember)
 			return Response(serializer.data)
 		except KeyError as e:
+			#raise
 			return Response('missing key: '+ e.args[0])
 
 

@@ -11,3 +11,26 @@ INSTRUCTIONS:</br></br>
 3. Install the dependencies: pip3 install -r dependencies.txt</br></br>
 4. Run the development server: python3 manager.py runserver</br></br>
 5. Go to /api/docs to see brief info.
+
+
+
+<h1> API ENDPOINTS </h1>
+
+GET /members (Gives all the members in our mysql db)
+curl -X GET "Content-Type:application/json" http://127.0.0.1:8000/api/members
+
+
+POST /members
+
+curl -X POST -H "Content-Type:application/json"  -d '{"first_name":"Biplov","last_name":"Dahal","phone_number":"510734","email":"dahalbiplovechs@gmail.com","role":"regular"}' 'http://127.0.0.1:8000/api/members'
+
+
+
+PUT /members [id field IS MANDATORY]
+
+curl -X PUT -H "Content-Type:application/json"  -d '{"id":"1", first_name":"Biplov","last_name":"Dahal","phone_number":"510734","email":"dahalbiplovechs@gmail.com","role":"regular"}' 'http://127.0.0.1:8000/api/members'
+
+
+DELETE /members [id FIELD IS MANDATORY]
+
+curl -X DELETE "Content-Type:application/json"  -d '{"id":"1"}' 'http://127.0.0.1:8000/api/members'

@@ -8,10 +8,10 @@ class Member(models.Model):
 
     email = models.EmailField(max_length=120)
     roles = (
-        (u'1', u'regular'),
-        (u'2', u'admin'),
+        ('1', 'regular'),
+        ('2', 'admin'),
     )
-    role = models.CharField(max_length=1, choices=roles, default='1')
+    role = models.CharField(max_length=1, choices=roles, default='2')
  
     class Meta:
         verbose_name = "Member"

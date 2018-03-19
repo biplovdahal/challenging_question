@@ -11,7 +11,7 @@ class MemberSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Member
-		fields = ('__all__')
+		fields = ('first_name','id','last_name','phone_number','email','roles')
 
 	def get_roles(self,obj):
 		return obj.get_role_display()
